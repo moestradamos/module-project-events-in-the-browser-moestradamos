@@ -7,6 +7,7 @@ function moduleProject2() {
     let currentTime = new Date().getTime()
     return currentTime - startTime
   }
+  
 
   // Setting up the footer content
   let footer = document.querySelector('footer')
@@ -37,6 +38,12 @@ function moduleProject2() {
       row.appendChild(square)
       square.addEventListener('click', () => {
         // 👉 TASK 2 - Use a click handler to target a square 👈
+        if (!square.classList.contains('targeted')) {
+          getAllSquares().forEach(sq => {
+            sq.classList.remove('targeted')
+            square.classList.add('targeted')
+          })
+        }
       })
     }
   }
